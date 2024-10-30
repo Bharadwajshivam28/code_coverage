@@ -1,18 +1,23 @@
-name: 'coverage.'
+name: 'coverage'
 on:
-   # pull_request_target:
-    push:   
-        branches:
-            - main
-            - code-coverage
-    workflow_dispatch:        
+  push:
+    branches:
+      - main
+      - code-coverage
+  workflow_dispatch:
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        permissions:
-          contents: 'read'
-          id-token: 'write'
-          checks: 'write'
-        steps:
-            - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
+  coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      checks: 'write'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Pass GitHub Token
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          github-token: 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
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
