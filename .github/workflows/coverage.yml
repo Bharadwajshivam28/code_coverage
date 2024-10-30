@@ -8,11 +8,12 @@ on:
 jobs:
     coverage:
         runs-on: ubuntu-latest
-        permissions:
-          checks: write        
-          issues: write 
-          id-token: 'write'       
-          contents: 'read'
+        # permissions:
+        #   checks: write        
+        #   issues: write 
+        #   id-token: 'write'       
+        #   contents: 'read'
+        permissions: write-all
         steps:
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
