@@ -13,11 +13,6 @@ jobs:
       id-token: 'write'
       checks: 'write'
     steps:
-      - uses: actions/checkout@v3
-      - name: Pass GitHub Token
-        uses: webfactory/ssh-agent@v0.5.0
-        with:
-          github-token: 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
       - uses: ArtiomTr/jest-coverage-report-action@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
