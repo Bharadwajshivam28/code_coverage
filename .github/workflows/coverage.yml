@@ -12,9 +12,7 @@ jobs:
           checks: write        
           issues: write 
           id-token: 'write'       
-          pull-requests: read   
           contents: 'read'
-          id-token: 'write'
         steps:
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
